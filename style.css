@@ -1,0 +1,259 @@
+:root{
+  --ink:#182117;
+  --paper:#F6F3EA;
+  --moss:#2F5233;
+  --moss-dark:#1F3A22;
+  --coupon-orange:#E85D2C;
+  --coupon-yellow:#F0B429;
+  --line:#D8D2C0;
+  --card:#FFFFFF;
+  --muted:#6B7368;
+  font-family: 'Inter', sans-serif;
+}
+
+body{
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+}
+h1,h2,h3,h4,.brand-mark,.brand-mark-alt{
+  font-family:'Sora', sans-serif;
+}
+
+/* ---------- NAVBAR ---------- */
+#mainNavbar{
+  background: var(--moss-dark);
+  border-bottom: 3px dashed var(--coupon-yellow);
+}
+.navbar-brand{ font-weight:800; font-size:1.4rem; letter-spacing:-0.02em; }
+.brand-mark{ color:#fff; }
+.brand-mark-alt{ color:var(--coupon-yellow); }
+#mainNavbar .nav-link{ color:#E7E4D8; font-weight:500; }
+#mainNavbar .nav-link:hover{ color:var(--coupon-yellow); }
+.btn-signup{
+  background: var(--coupon-orange);
+  color:#fff !important;
+  border-radius:6px;
+  padding:.4rem 1rem !important;
+  font-weight:600;
+}
+.wallet-chip{
+  background: rgba(240,180,41,0.15);
+  border:1px solid var(--coupon-yellow);
+  color: var(--coupon-yellow);
+  padding:.3rem .7rem;
+  border-radius:20px;
+  font-weight:700;
+  font-size:.9rem;
+  margin-right:.5rem;
+  display:inline-block;
+}
+.user-pill{ color:#fff !important; font-weight:600; }
+
+/* ---------- AD STRIP (perforated coupon ticker) ---------- */
+.ad-strip{
+  background: var(--coupon-orange);
+  overflow:hidden;
+  border-bottom: 3px dashed var(--paper);
+  display:none;
+}
+.ad-strip.show{ display:block; }
+.ad-strip-track{
+  display:flex;
+  gap:2.5rem;
+  white-space:nowrap;
+  color:#fff;
+  font-weight:600;
+  font-size:.85rem;
+  padding:.5rem 0;
+  animation: ticker 22s linear infinite;
+}
+@keyframes ticker{
+  0%{ transform:translateX(0); }
+  100%{ transform:translateX(-50%); }
+}
+
+/* ---------- SECTION TITLES ---------- */
+.section-title{
+  font-weight:800;
+  letter-spacing:-0.01em;
+}
+
+/* ---------- PAGES ---------- */
+.page{ display:none; }
+.page.active{ display:block; animation: fadeIn .25s ease; }
+@keyframes fadeIn{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
+
+/* ---------- AUTH CARDS ---------- */
+.auth-page{ padding-top:2rem; }
+.auth-card{
+  border:none;
+  border-radius:14px;
+  box-shadow: 0 12px 30px rgba(24,33,23,0.08);
+}
+.auth-title{ font-weight:800; }
+.btn-brand{
+  background: var(--moss);
+  color:#fff;
+  font-weight:700;
+  border-radius:8px;
+  padding:.6rem 1rem;
+  border:none;
+}
+.btn-brand:hover{ background: var(--moss-dark); color:#fff; }
+
+/* ---------- COUPON CARD ---------- */
+.coupon-card{
+  background: var(--card);
+  border-radius:14px;
+  position:relative;
+  border: 1.5px solid var(--line);
+  overflow:hidden;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.coupon-card:hover{ transform: translateY(-3px); box-shadow:0 10px 24px rgba(24,33,23,0.1); }
+.coupon-card::before, .coupon-card::after{
+  content:"";
+  position:absolute;
+  width:18px; height:18px;
+  background: var(--paper);
+  border-radius:50%;
+  top:50%;
+  transform:translateY(-50%);
+}
+.coupon-card::before{ left:-9px; }
+.coupon-card::after{ right:-9px; }
+.coupon-top{ padding:1rem 1rem .5rem; }
+.coupon-store{ font-weight:800; font-size:1.05rem; }
+.coupon-cat{
+  display:inline-block;
+  background: rgba(47,82,51,0.08);
+  color: var(--moss);
+  font-size:.72rem;
+  font-weight:700;
+  padding:.15rem .55rem;
+  border-radius:20px;
+  margin-bottom:.4rem;
+}
+.coupon-divider{
+  border-top: 2px dashed var(--line);
+  margin: .25rem 0;
+}
+.coupon-bottom{ padding: .75rem 1rem 1rem; margin-top:auto; }
+.coupon-discount{
+  font-size:1.4rem;
+  font-weight:800;
+  color: var(--coupon-orange);
+}
+.coupon-meta{ font-size:.8rem; color: var(--muted); }
+.coupon-price-row{ display:flex; justify-content:space-between; align-items:center; margin-top:.6rem; }
+.coupon-price{ font-weight:700; }
+.badge-expired{
+  background:#EDE3DD; color:#9A5A3E; font-weight:700; font-size:.72rem;
+  padding:.2rem .5rem; border-radius:6px;
+}
+.badge-active{
+  background:#E4EEE1; color:var(--moss-dark); font-weight:700; font-size:.72rem;
+  padding:.2rem .5rem; border-radius:6px;
+}
+
+/* ---------- FORM CARD ---------- */
+.form-card{ border:none; border-radius:14px; box-shadow:0 12px 30px rgba(24,33,23,0.06); }
+
+/* ---------- WALLET ---------- */
+.wallet-card{
+  background: linear-gradient(135deg, var(--moss-dark), var(--moss));
+  color:#fff;
+  border-radius:16px;
+  border:none;
+}
+.wallet-label{ opacity:.8; font-size:.85rem; }
+.wallet-amount{ font-size:2.4rem; font-weight:800; font-family:'Sora',sans-serif; }
+.txn-list{ max-height:320px; overflow-y:auto; }
+.txn-row{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:.6rem 0; border-bottom:1px solid var(--line); font-size:.9rem;
+}
+.txn-row:last-child{ border-bottom:none; }
+.txn-amt-pos{ color: var(--moss); font-weight:700; }
+.txn-amt-neg{ color: var(--coupon-orange); font-weight:700; }
+
+/* ---------- LEGAL ---------- */
+.legal-block{ border:none; border-radius:14px; box-shadow:0 8px 24px rgba(24,33,23,0.06); }
+.legal-block ol{ padding-left:1.2rem; }
+.legal-block li{ margin-bottom:.6rem; }
+
+/* ---------- CHAT WIDGET ---------- */
+#chatLauncher{
+  position:fixed; bottom:22px; right:22px;
+  width:56px; height:56px; border-radius:50%;
+  background: var(--coupon-orange); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.5rem; cursor:pointer; z-index:1050;
+  box-shadow:0 8px 20px rgba(232,93,44,0.4);
+}
+#chatWindow{
+  position:fixed; bottom:90px; right:22px; width:320px; max-width:90vw;
+  height:420px; background:#fff; border-radius:14px; overflow:hidden;
+  box-shadow:0 16px 40px rgba(0,0,0,0.2); z-index:1050;
+  display:flex; flex-direction:column;
+}
+.chat-header{
+  background: var(--moss-dark); color:#fff; padding:.7rem 1rem;
+  display:flex; justify-content:space-between; align-items:center; font-weight:700;
+}
+.chat-body{ flex:1; overflow-y:auto; padding:.75rem; font-size:.88rem; background:#FAF8F2; }
+.chat-msg{ margin-bottom:.6rem; max-width:85%; padding:.5rem .7rem; border-radius:10px; line-height:1.35; }
+.chat-msg.bot{ background:#fff; border:1px solid var(--line); }
+.chat-msg.user{ background: var(--moss); color:#fff; margin-left:auto; }
+.chat-quick{ display:flex; flex-wrap:wrap; gap:.35rem; padding:.5rem .75rem; background:#FAF8F2; border-top:1px solid var(--line); }
+.chat-quick button{
+  font-size:.75rem; background:#fff; border:1px solid var(--line); border-radius:20px;
+  padding:.25rem .6rem; cursor:pointer;
+}
+.chat-quick button:hover{ background: var(--paper); }
+.chat-input{ display:flex; border-top:1px solid var(--line); }
+.chat-input input{ flex:1; border:none; padding:.6rem .8rem; font-size:.88rem; outline:none; }
+.chat-input button{ background: var(--coupon-orange); color:#fff; border:none; padding:0 1rem; }
+
+@media (max-width:576px){
+  .wallet-amount{ font-size:1.9rem; }
+}
+
+/* ---------- LARGER, MORE VISIBLE FORM CONTROLS (date & select) ---------- */
+input[type="date"],
+select.form-select,
+select.form-control{
+  font-size:1.05rem;
+  padding:.65rem .9rem;
+  min-height:3rem;
+  line-height:1.4;
+}
+/* Make the native calendar picker icon bigger and easier to tap */
+input[type="date"]::-webkit-calendar-picker-indicator{
+  transform: scale(1.6);
+  margin-left:.5rem;
+  cursor:pointer;
+}
+/* Category filter dropdown on the marketplace (was form-select-sm / small) */
+#categoryFilter.form-select-sm{
+  font-size:1rem;
+  padding:.55rem .9rem;
+  min-height:2.75rem;
+}
+/* Category select inside the "Sell a coupon" form */
+#cCategory{
+  font-size:1.05rem;
+  padding:.65rem .9rem;
+  min-height:3rem;
+}
+/* Expiry date field inside the "Sell a coupon" form */
+#cExpiry{
+  font-size:1.05rem;
+  padding:.65rem .9rem;
+  min-height:3rem;
+}
+
